@@ -15,7 +15,7 @@ const listArticles = async(req,res,next) =>{
         const {page} = req.params;
 
         if(page <=0) throw new Error("BAD_REQUEST");
-        const articleList = await ArticleDAO.getList(10*(page-1), 10);
+        const articles = await ArticleDAO.getList(10*(page-1), 10);
         const hasPrev = (page > 1) ? true : false;
         
         const articleNumber = await ArticleDAO.getTotalCount();
