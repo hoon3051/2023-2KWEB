@@ -1,6 +1,7 @@
 const getAlertScript = msg => `<script>alert("${msg}");history.back();</script>`;
 
 const errorHandler = (err, req, res, next) => {
+    console.log(err);
     switch (err.message) {
         case 'BAD_REQUEST':
             return res.send(getAlertScript('Invalid parameters!'));
